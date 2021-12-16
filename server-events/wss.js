@@ -12,7 +12,7 @@ module.exports = {
   listeners: {
     startup: state => function (commander) {
       // create a new websocket server using the port command line argument
-      const wss = new WebSocket.Server({ port: 4001 });
+      const wss = new WebSocket.Server({ port: commander.port || 4001 });
 
       // This creates a super basic "echo" websocket server
       wss.on('connection', function connection(ws) {
